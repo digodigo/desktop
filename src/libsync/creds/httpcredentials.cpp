@@ -208,10 +208,6 @@ bool HttpCredentials::refreshAccessTokenInternal(int tokenRefreshRetriesCount)
             timeout = TokenRefreshDefaultTimeout;
         } else {
             switch (error) {
-            case QNetworkReply::ContentNotFoundError:
-                // 404: bigip f5?
-                timeout = 0s;
-                break;
             case QNetworkReply::HostNotFoundError:
                 [[fallthrough]];
             case QNetworkReply::TimeoutError:
